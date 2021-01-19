@@ -39,13 +39,13 @@ def normalize(input_string):
 
     space = ''
     for ch in temp_string:
-        if ch != ' ':
-            normalized_string += ch
-            normalized_string += space
-            space = ''
+        if ch == ' ':
+            space = ' '
 
         else:
-            space = ' '
+            normalized_string += space
+            normalized_string += ch
+            space = ''
 
 
     return normalized_string
