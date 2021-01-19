@@ -33,20 +33,10 @@ def normalize(input_string):
              >> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = ""
-    temp_string = input_string.lower()
-    temp_string = temp_string.strip()
 
-    space = ''
-    for ch in temp_string:
-        if ch == ' ':
-            space = ' '
-
-        else:
-            normalized_string += space
-            normalized_string += ch
-            space = ''
-
+    s = input_string.lower().strip()
+    s = s.split()
+    normalized_string = ' '.join(s)
 
     return normalized_string
 
@@ -72,16 +62,11 @@ def no_vowels(input_string):
             >> tp.normalize(input_string2)
             ''W lv Pythn!'
     """
-    no_vowel_string = input_string.replace('A', '')
-    no_vowel_string = no_vowel_string.replace('I', '')
-    no_vowel_string = no_vowel_string.replace('E', '')
-    no_vowel_string = no_vowel_string.replace('O', '')
-    no_vowel_string = no_vowel_string.replace('U', '')
+    vowels = {'A': True, 'I': True, 'E': True, 'O': True, 'U': True, 'a': True, 'i': True, 'e': True, 'o': True, 'u': True}
+    no_vowel_string = input_string
 
-    no_vowel_string = no_vowel_string.replace('a', '')
-    no_vowel_string = no_vowel_string.replace('i', '')
-    no_vowel_string = no_vowel_string.replace('e', '')
-    no_vowel_string = no_vowel_string.replace('o', '')
-    no_vowel_string = no_vowel_string.replace('u', '')
+    for ch in no_vowel_string:
+        if ch in vowels:
+            no_vowel_string = no_vowel_string.replace(ch, '')
 
     return no_vowel_string
