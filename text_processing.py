@@ -25,15 +25,29 @@ def normalize(input_string):
              ex - 'this is an example.'
 
          Examples:
-             >>> import text_processing as tp
-             >>> input_string1 = "This is an example."
-             >>> tp.normalize(input_string1)
+             >> import text_processing as tp
+             >> input_string1 = "This is an example."
+             >> tp.normalize(input_string1)
              'this is an example.'
-             >>> input_string2 = "   EXTRA   SPACE   "
-             >>> tp.normalize(input_string2)
+             >> input_string2 = "   EXTRA   SPACE   "
+             >> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = None
+    normalized_string = ""
+    temp_string = input_string.lower()
+    temp_string = temp_string.strip()
+
+    space = ''
+    for ch in temp_string:
+        if ch != ' ':
+            normalized_string += ch
+            normalized_string += space
+            space = ''
+
+        else:
+            space = ' '
+
+
     return normalized_string
 
 
@@ -50,13 +64,24 @@ def no_vowels(input_string):
             ex - "Ths s n xmpl."
 
         Examples:
-            >>> import text_processing as tp
-            >>> input_string1 = "This is an example."
-            >>> tp.normalize(input_string1)
+            >> import text_processing as tp
+            >> input_string1 = "This is an example."
+            >> tp.normalize(input_string1)
             "Ths s n xmpl."
-            >>> input_string2 = "We love Python!"
-            >>> tp.normalize(input_string2)
+            >> input_string2 = "We love Python!"
+            >> tp.normalize(input_string2)
             ''W lv Pythn!'
     """
-    no_vowel_string = None
+    no_vowel_string = input_string.replace('A', '')
+    no_vowel_string = no_vowel_string.replace('I', '')
+    no_vowel_string = no_vowel_string.replace('E', '')
+    no_vowel_string = no_vowel_string.replace('O', '')
+    no_vowel_string = no_vowel_string.replace('U', '')
+
+    no_vowel_string = no_vowel_string.replace('a', '')
+    no_vowel_string = no_vowel_string.replace('i', '')
+    no_vowel_string = no_vowel_string.replace('e', '')
+    no_vowel_string = no_vowel_string.replace('o', '')
+    no_vowel_string = no_vowel_string.replace('u', '')
+
     return no_vowel_string
