@@ -1,5 +1,5 @@
 #######################
-# Test Processing I   #
+# Text Processing I   #
 #######################
 
 """
@@ -25,15 +25,19 @@ def normalize(input_string):
              ex - 'this is an example.'
 
          Examples:
-             >>> import text_processing as tp
-             >>> input_string1 = "This is an example."
-             >>> tp.normalize(input_string1)
+             >> import text_processing as tp
+             >> input_string1 = "This is an example."
+             >> tp.normalize(input_string1)
              'this is an example.'
-             >>> input_string2 = "   EXTRA   SPACE   "
-             >>> tp.normalize(input_string2)
+             >> input_string2 = "   EXTRA   SPACE   "
+             >> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = None
+
+    s = input_string.lower().strip()
+    s = s.split()
+    normalized_string = ' '.join(s)
+
     return normalized_string
 
 
@@ -50,13 +54,19 @@ def no_vowels(input_string):
             ex - "Ths s n xmpl."
 
         Examples:
-            >>> import text_processing as tp
-            >>> input_string1 = "This is an example."
-            >>> tp.normalize(input_string1)
+            >> import text_processing as tp
+            >> input_string1 = "This is an example."
+            >> tp.normalize(input_string1)
             "Ths s n xmpl."
-            >>> input_string2 = "We love Python!"
-            >>> tp.normalize(input_string2)
+            >> input_string2 = "We love Python!"
+            >> tp.normalize(input_string2)
             ''W lv Pythn!'
     """
-    no_vowel_string = None
+    vowels = {'A': True, 'I': True, 'E': True, 'O': True, 'U': True, 'a': True, 'i': True, 'e': True, 'o': True, 'u': True}
+    no_vowel_string = input_string
+
+    for ch in no_vowel_string:
+        if ch in vowels:
+            no_vowel_string = no_vowel_string.replace(ch, '')
+
     return no_vowel_string
